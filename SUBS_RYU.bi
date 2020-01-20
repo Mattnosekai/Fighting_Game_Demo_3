@@ -10,13 +10,13 @@ static walkforward_ryu (1 to 6) as sprite
 static crouch_ryu (1 to 3) as sprite
 static jumping_ryu (1 to 7) as sprite
 static return_ryu (1 to 3) as sprite
-static jumpingforward_ryu (1 to 6) as sprite
+static jumpingforward_ryu (1 to 8) as sprite
 static standingpunch_ryu (1 to 3) as sprite
 static crouchingpunch_ryu (1 to 5) as sprite
 static jumpingpunch_ryu (1 to 3) as sprite
 static standingkick_ryu (1 to 3) as sprite
 static crouchingkick_ryu (1 to 5) as sprite
-static jumpingkick_ryu (1 to 3) as sprite
+static jumpingkick_ryu (1 to 5) as sprite
 static hadoken_ryu (1 to 8) as sprite
 static fireball (1 to 2) as sprite
 static shoryuken_ryu (1 to 6) as sprite
@@ -90,17 +90,19 @@ frame_delays(1)=.1
 frame_delays(2)=.1
 frame_delays(3)=.1    
 case "JUMPINGFORWARD"
-frame_counts=6
+frame_counts=8
 dim i as integer
 for i=1 to frame_counts
 ani_pointers(i)=jumpingforward_ryu(i).spritebuf
 next
-frame_delays(1)=.1
+frame_delays(1)=.2
 frame_delays(2)=.1
 frame_delays(3)=.1
 frame_delays(4)=.1
 frame_delays(5)=.1
-frame_delays(6)=.2    
+frame_delays(6)=.1  
+frame_delays(7)=.1 
+frame_delays(8)=.1
 case "STANDINGPUNCH"
 frame_counts=3
 for i=1 to frame_counts
@@ -126,7 +128,7 @@ ani_pointers(i)=jumpingpunch_ryu(i).spritebuf
 next
 frame_delays(1)=.1
 frame_delays(2)=.2
-frame_delays(3)=.1
+frame_delays(3)=.003
 case "STANDINGKICK"
 frame_counts=3
 for i=1 to frame_counts
@@ -146,13 +148,15 @@ frame_delays(3)=.1
 frame_delays(4)=.1
 frame_delays(5)=.1    
 case "JUMPINGKICK"
-frame_counts=3
+frame_counts=5
 for i=1 to frame_counts
 ani_pointers(i)=jumpingkick_ryu(i).spritebuf
 next
 frame_delays(1)=.1
-frame_delays(2)=.2
-frame_delays(3)=.1    
+frame_delays(2)=.1
+frame_delays(3)=.1
+frame_delays(4)=.1
+frame_delays(5)=.1
 case "HADOKEN"
 frame_counts=8
 for i=1 to frame_counts
@@ -221,6 +225,8 @@ LOAD_SPRITE jumpingforward_ryu(3),"graphics/ryu/ryu1_42-2.bmp"
 LOAD_SPRITE jumpingforward_ryu(4),"graphics/ryu/ryu1_42-3.bmp"
 LOAD_SPRITE jumpingforward_ryu(5),"graphics/ryu/ryu1_42-4.bmp"
 LOAD_SPRITE jumpingforward_ryu(6),"graphics/ryu/ryu1_42-5.bmp"
+LOAD_SPRITE jumpingforward_ryu(7),"graphics/ryu/ryu1_41-6.bmp"
+LOAD_SPRITE jumpingforward_ryu(8),"graphics/ryu/ryu1_41-0.bmp"
 '****
 LOAD_SPRITE standingpunch_ryu(1),"graphics/ryu/ryu1_210-0.bmp"
 LOAD_SPRITE standingpunch_ryu(2),"graphics/ryu/ryu1_210-1.bmp"
@@ -239,6 +245,11 @@ LOAD_SPRITE jumpingpunch_ryu(3),"graphics/ryu/ryu1_355-0.bmp"
 LOAD_SPRITE standingkick_ryu(1),"graphics/ryu/ryu1_250-0.bmp"
 LOAD_SPRITE standingkick_ryu(2),"graphics/ryu/ryu1_250-1.bmp"
 LOAD_SPRITE standingkick_ryu(3),"graphics/ryu/ryu1_250-0.bmp"
+'LOAD_SPRITE standingkick_ryu(1),"graphics/ryu/ryu1_410-0.bmp"
+'LOAD_SPRITE standingkick_ryu(2),"graphics/ryu/ryu1_410-1.bmp"
+'LOAD_SPRITE standingkick_ryu(3),"graphics/ryu/ryu1_410-2.bmp"
+'LOAD_SPRITE standingkick_ryu(4),"graphics/ryu/ryu1_410-3.bmp"
+'LOAD_SPRITE standingkick_ryu(5),"graphics/ryu/ryu1_410-4.bmp"
 '****
 LOAD_SPRITE crouchingkick_ryu(1),"graphics/ryu/ryu1_330-0.bmp"
 LOAD_SPRITE crouchingkick_ryu(2),"graphics/ryu/ryu1_330-1.bmp"
@@ -246,9 +257,14 @@ LOAD_SPRITE crouchingkick_ryu(3),"graphics/ryu/ryu1_330-2.bmp"
 LOAD_SPRITE crouchingkick_ryu(4),"graphics/ryu/ryu1_330-3.bmp"
 LOAD_SPRITE crouchingkick_ryu(5),"graphics/ryu/ryu1_330-4.bmp"
 '****
-LOAD_SPRITE jumpingkick_ryu(1),"graphics/ryu/ryu1_405-0.bmp"
-LOAD_SPRITE jumpingkick_ryu(2),"graphics/ryu/ryu1_405-1.bmp"
-LOAD_SPRITE jumpingkick_ryu(3),"graphics/ryu/ryu1_405-0.bmp"
+'LOAD_SPRITE jumpingkick_ryu(1),"graphics/ryu/ryu1_405-0.bmp"
+'LOAD_SPRITE jumpingkick_ryu(2),"graphics/ryu/ryu1_405-1.bmp"
+'LOAD_SPRITE jumpingkick_ryu(3),"graphics/ryu/ryu1_405-0.bmp"
+LOAD_SPRITE jumpingkick_ryu(1),"graphics/ryu/ryu1_410-0.bmp"
+LOAD_SPRITE jumpingkick_ryu(2),"graphics/ryu/ryu1_410-1.bmp"
+LOAD_SPRITE jumpingkick_ryu(3),"graphics/ryu/ryu1_410-2.bmp"
+LOAD_SPRITE jumpingkick_ryu(4),"graphics/ryu/ryu1_410-3.bmp"
+LOAD_SPRITE jumpingkick_ryu(5),"graphics/ryu/ryu1_410-4.bmp"
 '****
 LOAD_SPRITE hadoken_ryu(1),"graphics/ryu/ryu1_1200-0.bmp"
 LOAD_SPRITE hadoken_ryu(2),"graphics/ryu/ryu1_1200-1.bmp"
@@ -315,7 +331,9 @@ ImageDestroy jumpingforward_ryu(2).spritebuf
 ImageDestroy jumpingforward_ryu(3).spritebuf   
 ImageDestroy jumpingforward_ryu(4).spritebuf   
 ImageDestroy jumpingforward_ryu(5).spritebuf   
-ImageDestroy jumpingforward_ryu(6).spritebuf   
+ImageDestroy jumpingforward_ryu(6).spritebuf 
+ImageDestroy jumpingforward_ryu(7).spritebuf 
+ImageDestroy jumpingforward_ryu(8).spritebuf 
 '****
 ImageDestroy standingpunch_ryu(1).spritebuf   
 ImageDestroy standingpunch_ryu(2).spritebuf   
@@ -343,7 +361,9 @@ ImageDestroy crouchingkick_ryu(5).spritebuf
 '****
 ImageDestroy jumpingkick_ryu(1).spritebuf   
 ImageDestroy jumpingkick_ryu(2).spritebuf   
-ImageDestroy jumpingkick_ryu(3).spritebuf   
+ImageDestroy jumpingkick_ryu(3).spritebuf 
+ImageDestroy jumpingkick_ryu(4).spritebuf
+ImageDestroy jumpingkick_ryu(5).spritebuf
 '****
 ImageDestroy hadoken_ryu(1).spritebuf   
 ImageDestroy hadoken_ryu(2).spritebuf   
@@ -573,8 +593,10 @@ input_state2=input_state
 end if
 
 if kcs_p1(7)=1 and kcs_p1(10)=1  then 'Jumping Forward 
+'if kcs_p1(3)=1 then
 input_state="JUMPINGFORWARD"
 input_state2=input_state 
+exit sub
 end if
 
 if kcs_p1(8)=1  then 'Pressing Left 
@@ -589,8 +611,10 @@ end if
 
 
 if kcs_p1(7)=1  then 'Pressing Up 
+if input_state<>"JUMPINGBACK" and input_state<>"JUMPINGFORWARD" then
 input_state="JUMPING"
 input_state2=input_state 
+end if
 end if
 
 if kcs_p1(9)=1  then 'Pressing Down 
@@ -635,107 +659,614 @@ if kcs_p1(2)=0 and p_keys(2)=1 then p_keys(2)=0:input_state3="KICK_RELEASE"
 
 END SUB
 '===============================================================================
-SUB JUMPING_RYU(byref rx as integer,byref ry as integer,byref input_status as string,byref i_state as string,byref d_state as string,byref current_frame as integer,byref new_state as string,input_statez as string,input_statez2 as string,input_statez3 as string)
+SUB JUMPING_FORWARD_RYU(byref rx as integer,byref ry as integer,byref input_status as string,byref i_state as string,byref d_state as string,byref current_frame as integer,byref new_state as string,input_statez as string,input_statez2 as string,input_statez3 as string,t_array() as string)
 static count as integer
 static i_state2 as string
 static t as double
+static t2 as double
 dim frame_delay(1 to 10) as double
-frame_delay(1)=.1
-frame_delay(2)=.1
-frame_delay(3)=.2
-frame_delay(4)=.1
-frame_delay(5)=.1
-frame_delay(6)=.1
-frame_delay(7)=.1
-frame_delay(8)=.1
-frame_delay(9)=.1
-frame_delay(10)=.1
+frame_delay(1)=.05
+frame_delay(2)=.05
+frame_delay(3)=.05
+frame_delay(4)=.05
+frame_delay(5)=.05
+frame_delay(6)=.05
+frame_delay(7)=.05
+frame_delay(8)=.05
+frame_delay(9)=.05
+frame_delay(10)=.05
+static jumping_distance as integer
+static rf as string 'Rise and Fall status
+static input_status2 as string
+static new_state2 as string
+static wall2 as integer
 
+dim ground as integer
+ground=300 'Y Axis location of the ground
+static distance_increment1 as integer
+static distance_increment2 as integer
+static total_movement as integer
+static upward as integer
+static downward as integer
+static dbf as integer 'Y axis distance before ground, at or below this a punch or kick is no longer allowed when falling
+static min_d as integer 'Y axis minimum distance above ground to punch or kick when falling
+static efc as integer 'extra frame counter for falling animation frames
+dbf=300-ry
 
 if d_state="ON GROUND" and input_status="ON" then
+'Initialize Jump
 d_state="IN AIR"
 input_status="OFF"
 count=0
 'i_state2="RISING"
 i_state2=""
 new_state=""
+new_state2=""
 t=timer
+t2=timer
+jumping_distance=300 '300 Pixels Up
+distance_increment1=1 'X Axis increment
+distance_increment2=2 'Y Axis increment
+total_movement=int((jumping_distance/distance_increment2)*2) 'It is always times 2 because half of the movement is going up and half is going back down
+upward=int(total_movement/4)
+downward=(upward+1)
+min_d=40
+efc=1
+wall2=610
 end if
 
 
-if d_state="IN AIR" and count>=1 and count<75 then
-current_frame=2
-if (timer-t)>=.003 then
+
+if d_state="IN AIR" and count>=1 and count<upward then
+'Rising
+rf="RISING"
+current_frame=1
+if (timer-t)>=.004 then
 input_status="OFF"
 count=count+1
 t=timer
-ry=ry-2
+rx=rx+distance_increment1
+ry=ry-distance_increment2
+if rx>wall2 then rx=wall2
 end if
 end if 
 
+if d_state="IN AIR" and (upward-count)<=20 and count<upward then current_frame=2:efc=2
 
-if d_state="IN AIR" and count>=80 and count<150 then
-current_frame=7
-if (timer-t)>=.003 then
+
+if d_state="IN AIR" and count>=upward and dbf>1 then'and dbf>min_d then'count<150 then
+'Falling
+'current_frame=7
+rf="FALLING"
+if (timer-t2)>=frame_delay(efc) then
+t2=timer
+efc=efc+1
+if efc>7 then efc=7
+end if    
+current_frame=efc
+if (timer-t)>=.004 then
 input_status="OFF"
 count=count+1
 t=timer
-ry=ry+2
+rx=rx+distance_increment1
+ry=ry+distance_increment2
+if rx>wall2 then rx=wall2
 end if
 end if
 
-if new_state="" then
-if d_state="IN AIR" and count>=75 and count<=79 then
-if (timer-t)>=frame_delay(current_frame) then
-input_status="OFF"
-count=count+1
-t=timer
-current_frame=current_frame+1
-end if
-end if
-else
-if d_state="IN AIR" and count>=75 and count<=79 then count=count+1    
-end if
 
-if d_state="IN AIR" and count=0 then
+
+if d_state="IN AIR" and count=0 and rf="" then
+'Begin Jump
 current_frame=1
-if (timer-t)>=.003 then
+'if (timer-t)>=.003 then
 SOUND_RYU "JUMPING"
 input_status="OFF"
 count=count+1
-t=timer
-end if
+'t=timer
+'end if
+rf="RISING"
 end if    
 
-if d_state="IN AIR" and count>=150 then
-current_frame=1
-if (timer-t)>=.2 then
+if d_state="IN AIR" and dbf<=1 then
+current_frame=8
+if (timer-t)>=.1 then
 input_status="ON"
 count=0
 t=timer
-ry=300
+ry=ground
 d_state="ON GROUND"
 i_state=""
 new_state=""
 input_statez2=""
 input_statez3=""
+rf=""
 end if
 end if
 
-if new_state="" then
-if d_state="IN AIR" and count>1 and count<130  then
-input_status="ON"
-if input_statez3="PUNCH" and i_state2="" then 
-i_state2="PUNCH":new_state="JUMPINGPUNCH"
-SOUND_RYU "SWING" 'Punching Sound
+if new_state2="" and d_state="IN AIR" then
+if d_state="IN AIR" and rf="RISING" then input_status2="ON"
+if d_state="IN AIR" and rf="FALLING" and dbf>min_d then input_status2="ON"
+if d_state="IN AIR" and rf="FALLING" and dbf<min_d then input_status2="OFF"
+
+
+if input_statez3="PUNCH" and input_status2="ON" then
+new_state2="PUNCH"
+SOUND_RYU "SWING"
+new_state=new_state2
+t_array(1)=str(count)
+t_array(2)=rf
+t_array(3)=str(upward)
+t_array(4)=str(downward)
+t_array(5)="STARTFP"
+t_array(6)=str(efc)
 end if
-if input_statez3="KICK" and i_state2="" then 
-i_state2="KICK":new_state="JUMPINGKICK"
-SOUND_RYU "JUMPING" 'Kicking Sound
+
+if input_statez3="KICK" and input_status2="ON" then
+new_state2="KICK"
+SOUND_RYU "JUMPING"
+new_state=new_state2
+t_array(1)=str(count)
+t_array(2)=rf
+t_array(3)=str(upward)
+t_array(4)=str(downward)
+t_array(5)="STARTFK"
+t_array(6)=str(efc)
 end if
-end if    
+
 end if
+
+
 END SUB
+'===============================================================================
+SUB JUMPING_RYU(byref rx as integer,byref ry as integer,byref input_status as string,byref i_state as string,byref d_state as string,byref current_frame as integer,byref new_state as string,input_statez as string,input_statez2 as string,input_statez3 as string,t_array() as string)
+static count as integer
+static i_state2 as string
+static t as double
+static t2 as double
+dim frame_delay(1 to 10) as double
+frame_delay(1)=.1
+frame_delay(2)=.1
+frame_delay(3)=.2
+frame_delay(4)=.2
+frame_delay(5)=.05
+frame_delay(6)=.03
+frame_delay(7)=0
+frame_delay(8)=.1
+frame_delay(9)=.1
+frame_delay(10)=.1
+static jumping_distance as integer
+static rf as string 'Rise and Fall status
+static input_status2 as string
+static new_state2 as string
+
+dim ground as integer
+ground=300 'Y Axis location of the ground
+static distance_increment as integer
+static total_movement as integer
+static upward as integer
+static downward as integer
+static dbf as integer 'Y axis distance before ground, at or below this a punch or kick is no longer allowed when falling
+static min_d as integer 'Y axis minimum distance above ground to punch or kick when falling
+static efc as integer 'extra frame counter for falling animation frames
+dbf=300-ry
+
+if d_state="ON GROUND" and input_status="ON" then
+'Initialize Jump
+d_state="IN AIR"
+input_status="OFF"
+count=0
+'i_state2="RISING"
+i_state2=""
+new_state=""
+new_state2=""
+t=timer
+t2=timer
+jumping_distance=300 '300 Pixels Up
+distance_increment=2 'Y Axis increment
+total_movement=int((jumping_distance/distance_increment)*2) 'It is always times 2 because half of the movement is going up and half is going back down
+upward=int(total_movement/4)
+downward=(upward+1)
+min_d=40
+efc=2
+end if
+
+
+
+if d_state="IN AIR" and count>=1 and count<upward then
+'Rising
+rf="RISING"
+current_frame=2
+if (timer-t)>=.004 then
+input_status="OFF"
+count=count+1
+t=timer
+ry=ry-distance_increment
+end if
+end if 
+
+if d_state="IN AIR" and (upward-count)<=20 and count<upward then current_frame=3:efc=3
+
+
+if d_state="IN AIR" and count>=upward and dbf>1 then'and dbf>min_d then'count<150 then
+'Falling
+'current_frame=7
+rf="FALLING"
+if (timer-t2)>=frame_delay(efc) then
+t2=timer
+efc=efc+1
+if efc>7 then efc=7
+end if    
+current_frame=efc
+if (timer-t)>=.004 then
+input_status="OFF"
+count=count+1
+t=timer
+ry=ry+distance_increment
+end if
+end if
+
+
+
+if d_state="IN AIR" and count=0 and rf="" then
+'Begin Jump
+current_frame=1
+'if (timer-t)>=.003 then
+SOUND_RYU "JUMPING"
+input_status="OFF"
+count=count+1
+'t=timer
+'end if
+rf="RISING"
+end if    
+
+if d_state="IN AIR" and dbf<=1 then
+current_frame=1
+if (timer-t)>=.1 then
+input_status="ON"
+count=0
+t=timer
+ry=ground
+d_state="ON GROUND"
+i_state=""
+new_state=""
+input_statez2=""
+input_statez3=""
+rf=""
+end if
+end if
+
+if new_state2="" and d_state="IN AIR" then
+if d_state="IN AIR" and rf="RISING" then input_status2="ON"
+if d_state="IN AIR" and rf="FALLING" and dbf>min_d then input_status2="ON"
+if d_state="IN AIR" and rf="FALLING" and dbf<min_d then input_status2="OFF"
+
+
+if input_statez3="PUNCH" and input_status2="ON" then
+new_state2="PUNCH"
+SOUND_RYU "SWING"
+new_state=new_state2
+t_array(1)=str(count)
+t_array(2)=rf
+t_array(3)=str(upward)
+t_array(4)=str(downward)
+t_array(5)="STARTP"
+t_array(6)=str(efc)
+end if
+
+if input_statez3="KICK" and input_status2="ON" then
+new_state2="KICK"
+SOUND_RYU "JUMPING"
+new_state=new_state2
+t_array(1)=str(count)
+t_array(2)=rf
+t_array(3)=str(upward)
+t_array(4)=str(downward)
+t_array(5)="STARTK"
+t_array(6)=str(efc)
+end if
+
+end if
+
+
+END SUB
+'=============================================================================== 
+'SUB JUMPING_FORWARD_RYU(byref rx as integer,byref ry as integer,byref input_status as string,byref i_state as string,byref d_state as string,byref current_frame as integer,byref new_state as string,input_statez as string,input_statez2 as string,input_statez3 as string)
+SUB JUMPING_PUNCH_RYU(byref rx as integer,byref ry as integer,byref input_status as string,byref i_state as string,byref d_state as string,byref current_frame as integer,byref new_state as string,byref input_statez as string,byref input_statez2 as string,byref input_statez3 as string,t_array() as string)
+static count as integer
+static i_state2 as string
+static t as double
+static t2 as double
+dim frame_delay(1 to 10) as double
+dim frame_delay2(1 to 10) as double
+frame_delay(1)=.1
+frame_delay(2)=.1
+frame_delay(3)=.2
+frame_delay(4)=.2
+frame_delay(5)=.05
+frame_delay(6)=.03
+frame_delay(7)=0
+frame_delay(8)=.1
+frame_delay(9)=.1
+frame_delay(10)=.1
+
+frame_delay2(1)=.1
+frame_delay2(2)=.2
+frame_delay2(3)=.1
+
+static true_frame as integer
+
+static jumping_distance as integer
+static rf as string 'Rise and Fall status
+static input_status2 as string
+static new_state2 as string
+static t3 as double
+
+dim ground as integer
+ground=300 'Y Axis location of the ground
+static distance_increment as integer
+static total_movement as integer
+static upward as integer
+static downward as integer
+static dbf as integer 'Y axis distance before ground, at or below this a punch or kick is no longer allowed when falling
+static min_d as integer 'Y axis minimum distance above ground to punch or kick when falling
+static efc as integer 'extra frame counter for falling animation frames
+dbf=300-ry
+static sn as string
+'draw string (10,200),t_array(5)
+'sleep
+
+if t_array(5)="STARTP" and sn="" then 
+
+'Initialize Jump
+d_state="IN AIR"
+input_status="OFF"
+count=val(t_array(1))
+rf=t_array(2)
+'i_state2="RISING"
+if rf="" then rf="RISING"
+i_state2=""
+'new_state=""
+'new_state2=""
+t=timer
+t2=timer
+t3=timer
+jumping_distance=300 '300 Pixels Up
+distance_increment=2 'Y Axis increment
+total_movement=int((jumping_distance/distance_increment)*2) 'It is always times 2 because half of the movement is going up and half is going back down
+upward=int(total_movement/4)
+downward=(upward+1)
+min_d=40
+efc=2
+true_frame=1
+t_array(5)="PUNCH"
+'sn="S"
+end if
+
+'if sn<>"S" then exit sub
+
+'draw string (10,200),str(count)+" "+str(rx)+" "+str(ry)
+'sleep  
+
+if rf="RISING" and count<upward then
+'Rising
+'rf="RISING"
+current_frame=2
+if (timer-t)>=.004 then
+input_status="OFF"
+count=count+1
+t=timer
+ry=ry-distance_increment
+end if
+end if
+
+if count>=upward then rf="FALLING"
+
+if rf="FALLING" and count>=upward and dbf>1 then
+'Rising
+'rf="RISING"
+current_frame=2
+if (timer-t)>=.004 then
+input_status="OFF"
+count=count+1
+t=timer
+ry=ry+distance_increment
+end if
+end if
+
+
+if true_frame<=3 then
+current_frame=true_frame    
+if (timer-t3)>=frame_delay2(true_frame) then
+current_frame=true_frame
+t3=timer
+true_frame=true_frame+1
+efc=2
+end if
+end if
+
+'if true_frame>3 then current_frame=7:t_array(5)="JUMPING"
+if true_frame>3 then
+t_array(5)="JUMPING"    
+if (timer-t2)>=frame_delay(efc) then
+t2=timer
+efc=efc+1
+if efc>7 then efc=7
+end if    
+current_frame=efc
+
+end if
+
+if d_state="IN AIR" and dbf<=1 and rf="FALLING" then
+current_frame=1
+if (timer-t)>=.1 then
+input_status="ON"
+count=0
+t=timer
+ry=ground
+d_state="ON GROUND"
+i_state=""
+new_state="RETURN"
+input_statez2=""
+input_statez3=""
+rf=""
+t_array(5)=""
+end if
+end if
+
+'if dbf<min_d and d_state="IN AIR" then current_frame=7
+
+END SUB
+'===============================================================================
+SUB JUMPING_KICK_RYU(byref rx as integer,byref ry as integer,byref input_status as string,byref i_state as string,byref d_state as string,byref current_frame as integer,byref new_state as string,byref input_statez as string,byref input_statez2 as string,byref input_statez3 as string,t_array() as string)
+static count as integer
+static i_state2 as string
+static t as double
+static t2 as double
+dim frame_delay(1 to 10) as double
+dim frame_delay2(1 to 10) as double
+frame_delay(1)=.1
+frame_delay(2)=.1
+frame_delay(3)=.2
+frame_delay(4)=.2
+frame_delay(5)=.05
+frame_delay(6)=.03
+frame_delay(7)=0
+frame_delay(8)=.1
+frame_delay(9)=.1
+frame_delay(10)=.1
+
+frame_delay2(1)=.05
+frame_delay2(2)=.05
+frame_delay2(3)=.1
+frame_delay2(4)=.05
+frame_delay2(4)=.05
+
+static true_frame as integer
+
+static jumping_distance as integer
+static rf as string 'Rise and Fall status
+static input_status2 as string
+static new_state2 as string
+static t3 as double
+
+dim ground as integer
+ground=300 'Y Axis location of the ground
+static distance_increment as integer
+static total_movement as integer
+static upward as integer
+static downward as integer
+static dbf as integer 'Y axis distance before ground, at or below this a punch or kick is no longer allowed when falling
+static min_d as integer 'Y axis minimum distance above ground to punch or kick when falling
+static efc as integer 'extra frame counter for falling animation frames
+dbf=300-ry
+static sn as string
+'draw string (10,200),t_array(5)
+'sleep
+
+if t_array(5)="STARTK" and sn="" then 
+
+'Initialize Jump
+d_state="IN AIR"
+input_status="OFF"
+count=val(t_array(1))
+rf=t_array(2)
+'i_state2="RISING"
+if rf="" then rf="RISING"
+i_state2=""
+'new_state=""
+'new_state2=""
+t=timer
+t2=timer
+t3=timer
+jumping_distance=300 '300 Pixels Up
+distance_increment=2 'Y Axis increment
+total_movement=int((jumping_distance/distance_increment)*2) 'It is always times 2 because half of the movement is going up and half is going back down
+upward=int(total_movement/4)
+downward=(upward+1)
+min_d=40
+efc=2
+true_frame=1
+t_array(5)="KICK"
+'sn="S"
+end if
+
+'if sn<>"S" then exit sub
+
+'draw string (10,200),str(count)+" "+str(rx)+" "+str(ry)
+'sleep  
+
+if rf="RISING" and count<upward then
+'Rising
+'rf="RISING"
+current_frame=2
+if (timer-t)>=.004 then
+input_status="OFF"
+count=count+1
+t=timer
+ry=ry-distance_increment
+end if
+end if
+
+if count>=upward then rf="FALLING"
+
+if rf="FALLING" and count>=upward and dbf>1 then
+'Rising
+'rf="RISING"
+current_frame=2
+if (timer-t)>=.004 then
+input_status="OFF"
+count=count+1
+t=timer
+ry=ry+distance_increment
+end if
+end if
+
+
+if true_frame<=5 then
+current_frame=true_frame    
+if (timer-t3)>=frame_delay2(true_frame) then
+current_frame=true_frame
+t3=timer
+true_frame=true_frame+1
+efc=2
+end if
+end if
+
+'if true_frame>3 then current_frame=7:t_array(5)="JUMPING"
+if true_frame>5 then
+t_array(5)="JUMPING"    
+if (timer-t2)>=frame_delay(efc) then
+t2=timer
+efc=efc+1
+if efc>7 then efc=7
+end if    
+current_frame=efc
+
+end if
+
+if d_state="IN AIR" and dbf<=1 and rf="FALLING" then
+current_frame=1
+if (timer-t)>=.1 then
+input_status="ON"
+count=0
+t=timer
+ry=ground
+d_state="ON GROUND"
+i_state=""
+new_state="RETURN"
+input_statez2=""
+input_statez3=""
+rf=""
+t_array(5)=""
+end if
+end if
+
+'if dbf<min_d and d_state="IN AIR" then current_frame=7
+
+END SUB
+
+
 '===============================================================================
 SUB STATE_RYU(byref rx as integer,byref ry as integer,byref cur_ani as any ptr,states_ryu() as string)
 'Animation & Sound should be loaded before calling this sub
@@ -770,7 +1301,9 @@ static t5 as double
 static pframe as integer
 static pstate as string
 static new_state1 as string
-static pnew_state1 as string
+static pnew_state1 as string 
+static jump_state1 as string
+static t_array1(1 to 100) as string
 
 if fp=0 then
 fp=1
@@ -880,7 +1413,9 @@ SOUND_RYU "JUMPING" 'Kicking Sound
 end if
 end if
 case "JUMPING"
-if kick="YES" and punch="YES" and input_status="ON" then i_state="J"    
+if kick="YES" and punch="YES" and input_status="ON" then i_state="J" 
+case "JUMPINGFORWARD"
+if kick="YES" and punch="YES" and input_status="ON" then i_state="JF"
 case "NOTHING"
 if input_status="ON" then 
 pstate=i_state
@@ -910,7 +1445,17 @@ current_state1="CROUCHINGPUNCH"
 case "CK"
 current_state1="CROUCHINGKICK"  
 case "J"
-current_state1="JUMPING"    
+current_state1="JUMPING"  
+jump_state1="J"
+case "JP"
+current_state1="JUMPINGPUNCH" 
+jump_state1="JP"
+case "JK"
+current_state1="JUMPINGKICK" 
+jump_state1="JK"
+case "JF"
+current_state1="JUMPINGFORWARD"
+jump_state1="JF"
 case else
 current_state1="STANDING"    
 i_state=""
@@ -918,25 +1463,53 @@ i_state=""
 'input_status="ON"
 end select
 
-if i_state="J" or d_state="IN AIR" then
+if new_state1="RETURN" then current_state1="STANDING":jump_state1="":new_state1="" 'This gets everything back to Standing/normal
+'Set new_state1 to "RETURN" anytime to bring things back to Standing/normal
+
+if jump_state1="J" or current_state1="JUMPING" then
 current_state1="JUMPING"
-if new_state1="" then current_frame2=1
-pnew_state1=new_state1
-JUMPING_RYU rx,ry,input_status,i_state,d_state,current_frame1,new_state1,input_state1,input_state2,input_state3
-if len(new_state1)>3 then
-current_state1=new_state1
-'if pnew_state1="" then current_frame1=1
-current_frame1=current_frame2
-end if    
+
+if new_state1<>"PUNCH" and new_state1<>"KICK" then
+'if new_state1="" then
+JUMPING_RYU rx,ry,input_status,i_state,d_state,current_frame1,new_state1,input_state1,input_state2,input_state3,t_array1()
 end if
+
+end if
+
+if jump_state1="JF" or current_state1="JUMPINGFORWARD" then
+current_state1="JUMPINGFORWARD"
+
+if new_state1<>"PUNCH" and new_state1<>"KICK" then
+'if new_state1="" then
+JUMPING_FORWARD_RYU rx,ry,input_status,i_state,d_state,current_frame1,new_state1,input_state1,input_state2,input_state3,t_array1()
+end if
+
+end if
+
+
+if jump_state1="JP" or t_array1(5)="PUNCH" or t_array1(5)="STARTP" or t_array1(5)="JUMPING" then
+jump_state1="JP"
+current_state1="JUMPINGPUNCH"
+JUMPING_PUNCH_RYU rx,ry,input_status,i_state,d_state,current_frame1,new_state1,input_state1,input_state2,input_state3,t_array1()
+if t_array1(5)="JUMPING" then current_state1="JUMPING"
+end if
+
+if jump_state1="JK" or t_array1(5)="KICK" or t_array1(5)="STARTK" or t_array1(5)="JUMPING" then
+jump_state1="JK"
+current_state1="JUMPINGKICK"
+JUMPING_KICK_RYU rx,ry,input_status,i_state,d_state,current_frame1,new_state1,input_state1,input_state2,input_state3,t_array1()
+if t_array1(5)="JUMPING" then current_state1="JUMPING"
+end if
+
 
 GET_ANIMATION_RYU current_state1,animation_pointers(),frame_delays1(),frame_count1,return_string1 'Get Current Animation Frames
 '(rx as integer,ry as integer,cur_ani as any ptr,cur_state as string,cur_vector as string)
 cur_ani=animation_pointers(current_frame1)
 'cur_state=current_state1'str(animation_pointers(current_frame1))
 'cur_vector=vector
-states_ryu(1)=current_state1+" "+input_state2+" "+input_state3
+states_ryu(1)=current_state1+" "+input_state2+" "+input_state3+" "+str(current_frame1)
 states_ryu(2)=d_state
+states_ryu(3)=t_array1(1)+" "+t_array1(2)+" "+t_array1(3)+" "+t_array1(4)+" "+t_array1(5)+" "+t_array1(6)+" "+t_array1(7)+" "
 
 if mid(current_state1,1,7)<>"JUMPING" then
 if (timer-t)>=frame_delays1(current_frame1) then
@@ -961,16 +1534,20 @@ end if
 end if
 end if
 '************************************
-if mid(current_state1,1,7)="JUMPING" then
-if (timer-t)>=frame_delays1(current_frame2) then
-t=timer
-current_frame2=current_frame2+1
-if current_frame2>frame_count1 then 
-current_frame2=1
-current_state1="JUMPING"
-new_state1="END"
-end if
-end if
+'if current_state1="JUMPING" then'mid(current_state1,1,7)="JUMPING" then
+''if (timer-t)>=frame_delays1(current_frame2) then
+'t=timer
+'current_frame2=current_frame2+1
+'if current_frame2>frame_count1 then 
+'current_frame2=1
+'current_state1="JUMPING"
+'new_state1="END"
+'end if
+'end if
+''end if
+'***********************************
+if d_state<>"IN AIR" then
+jump_state1=""    
 end if
 
 END SUB
